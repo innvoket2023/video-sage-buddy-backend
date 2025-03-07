@@ -292,7 +292,6 @@ def query_video():
         data = request.get_json()
         query = data['query']
         video_name = data['video_name']
-        print(query)
 
         # Validate inputs
         if not query or not video_name:
@@ -333,8 +332,11 @@ def query_video():
 
         return jsonify({"results": [results]})
 
+    except KeyError as e:
+        return jsonify({"error": f"Missing required field: {str(e)}"}), 400
     except Exception as e:
         app.logger.error(f"Query error: {str(e)}")
+
         return jsonify({"error": "Processing failed"}), 500
 
 if __name__ == '__main__':
