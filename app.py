@@ -286,13 +286,13 @@ def get_preview():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-
 @app.route('/query', methods=['POST'])
 def query_video():
     try:
         data = request.get_json()
         query = data['query']
         video_name = data['video_name']
+        print(query)
 
         # Validate inputs
         if not query or not video_name:
