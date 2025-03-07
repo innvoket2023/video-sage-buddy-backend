@@ -38,7 +38,12 @@ genai.configure(api_key=gemini_api)
 
 app = Flask(__name__)
 # Configure CORS to allow requests from your frontend
-CORS(app, resources={r"/*": {"origins": ["http://localhost:8080", "http://localhost:3000", "divine-connection-production.up.railway.app"]}})
+CORS(app, resources={r"/*": {"origins": [
+    "http://localhost:*", 
+    "https://*.railway.app",  # Allows all Railway subdomains
+    "https://divine-connection-production.up.railway.app",
+    f"https://{os.getenv('RAILWAY_PRIVATE_DOMAIN')}"  # Dynamic Railway domain
+]}})
 
 # Initialize embedding model
 embedding_model = OpenAIEmbeddings(model="text-embedding-ada-002", api_key=openai_api)
