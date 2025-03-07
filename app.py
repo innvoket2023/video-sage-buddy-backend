@@ -42,6 +42,7 @@ CORS(app, resources={r"/*": {"origins": [
     "http://localhost:*", 
     "https://*.railway.app",  # Allows all Railway subdomains
     "https://divine-connection-production.up.railway.app",
+    "https://video-sage-buddy-production.up.railway.app",
     f"https://{os.getenv('RAlLWAY_PUBLIC_DOMAIN')}"  # Dynamic Railway domain
 ]}})
 
