@@ -42,7 +42,7 @@ CORS(app, resources={r"/*": {"origins": [
     "http://localhost:*", 
     "https://*.railway.app",  # Allows all Railway subdomains
     "https://divine-connection-production.up.railway.app",
-    f"https://{os.getenv('RAILWAY_PRIVATE_DOMAIN')}"  # Dynamic Railway domain
+    f"https://{os.getenv('RAlLWAY_PUBLIC_DOMAIN')}"  # Dynamic Railway domain
 ]}})
 
 # Initialize embedding model
