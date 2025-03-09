@@ -309,7 +309,7 @@ def query_video():
             return jsonify({"error": "Video data not available"}), 404
 
         # Perform similarity search
-        search_k = 3 if video_name == "all" else 3
+        search_k = 7 if video_name == "all" else 3
         docs = vector_db.similarity_search(query, k=search_k)
         
         # Prepare results in uniform format
